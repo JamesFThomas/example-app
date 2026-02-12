@@ -1,5 +1,7 @@
 # Example App
 
+![Example App Banner](./public/readme_images/example_app_banner_color.png)
+
 <p align="left">
   <img src="https://img.shields.io/badge/Next.js-App_Router-black?logo=next.js" />
   <img src="https://img.shields.io/badge/TypeScript-Strict-blue?logo=typescript" />
@@ -7,7 +9,6 @@
   <img src="https://img.shields.io/badge/Deployed_on-Vercel-black?logo=vercel" />
   <img src="https://img.shields.io/badge/License-MIT-green" />
 </p>
-
 
 A Next.js example application built as a companion to the SlimKat Media blog series.
 
@@ -52,13 +53,11 @@ npm run dev
 
 Open http://localhost:3000.
 
-
 ## Project Structure
 
 The project follows a modular, feature-oriented structure using the Next.js App Router.
 
-
-``` pgsql
+```pgsql
 app/                 # Next.js routing layer (App Router)
   layout.tsx         # Root layout wrapper
   page.tsx           # Root page entry
@@ -77,10 +76,9 @@ public/              # Static assets (images, icons, etc.)
 
 ```
 
-
 ## Testing
 
-Will be implemented in bLog 3 of the series. 
+Will be implemented in bLog 3 of the series.
 
 ## Deployment
 
@@ -88,23 +86,31 @@ This application is deployed on Vercel.
 
 - Live site: https://example-app-eight-silk.vercel.app/
 
-
 ## Upcoming Features
 
-Planned feature work includes:
-- Email subscription confirmation flow
-- Calendar appointments
-- Add appointments to a user’s Google Calendar
-- Login and authentication
-- Session tracking
+### Application Features
+
+- Email subscription confirmation flow (transactional email via Resend)
+- Calendar scheduling feature
+- Google Calendar API integration
+- User authentication and role-based access control
+- Session management and secure token handling
+
+### Infrastructure & Platform
+
+- Production database deployment and schema design
+- Database integration with authentication layer
+- Custom domain configuration and DNS setup (exampleapp.com)
+- Domain-verified email delivery (SPF, DKIM, DMARC)
+- Branded domain email inboxes (e.g., contact@exampleapp.com)
 
 ## Author
 
 #### James Felton Thomas:
+
 - GitHub: https://github.com/JamesFThomas
 - LinkedIn: https://www.linkedin.com/in/jamesfeltonthomas/
 
-
 ## License
-- MIT
 
+- MIT

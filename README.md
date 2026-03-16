@@ -55,6 +55,14 @@ Open http://localhost:3000.
 
 ## Debugging with VS Code
 
+### Debugger Example
+
+<p align="center">
+  <img src="./public/readme_images/debugger_running.png" alt="VS Code debugger running with breakpoint" width="900"/>
+</p>
+
+Example of the VS Code debugger stopping execution at a breakpoint inside the Home component.
+
 This project includes a recommended VS Code debugging configuration so developers can place breakpoints directly inside React components and server code while running the Next.js development server.
 
 Some environments inject incompatible Node flags when the debugger launches. To avoid this, the debugger must run with the **same Node version used by your system**.
@@ -75,14 +83,12 @@ node -v
 
 Create the file:
 
-```bash
-  .vscode/launch.json
-```
+`.vscode/launch.json`
 
 with the following configuration:
 
-```JSON
-  {
+```json
+{
   "version": "0.2.0",
   "configurations": [
     {
@@ -125,7 +131,7 @@ While Turbopack is the default development bundler in newer versions of Next.js,
 
 provides a stable debugging workflow.
 
-#### Running the Debugger
+### Running the Debugger
 
 1. Open the project in VS Code
 2. Go to Run and Debug
@@ -137,22 +143,16 @@ The development server will launch and the debugger will attach.
 Example output:
 
 ```bash
-  Next.js (webpack)
-  Local: http://localhost:3000
-  Debugger attached.
+Next.js (webpack)
+Local: http://localhost:3000
+Debugger attached.
 ```
 
 You can now place breakpoints inside components such as:
 
-```bash
-  components/pages/home/Home.tsx
-```
+`components/pages/home/Home.tsx`
 
 When the page loads in the browser, execution will pause at the breakpoint so you can inspect variables, component state, and the call stack.
-
-<p align="center">
-  <img src="./public/readme_images/debugger_running.png" alt="VS Code debugger running with breakpoint" width="900"/>
-</p>
 
 ## Project Structure
 

@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Example App: Next dev",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.nvm/versions/node/v20.19.6/bin/node",
+      "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
+      "args": ["dev", "--webpack"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_OPTIONS": ""
+      }
+    }
+  ]
+}

@@ -53,6 +53,107 @@ npm run dev
 
 Open http://localhost:3000.
 
+## Debugging with VS Code
+
+This project includes a recommended VS Code debugging configuration so developers can place breakpoints directly inside React components and server code while running the Next.js development server.
+
+Some environments inject incompatible Node flags when the debugger launches. To avoid this, the debugger must run with the **same Node version used by your system**.
+
+### Requirements
+
+- VS Code
+- Node.js installed via **nvm** (recommended)
+- Node version **20+**
+
+Verify your Node version:
+
+```bash
+node -v
+```
+
+### VS Code Debug Configuration
+
+Create the file:
+
+```bash
+  .vscode/launch.json
+```
+
+with the following configuration:
+
+```JSON
+  {
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Example App: Next dev",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${env:HOME}/.nvm/versions/node/v20.19.6/bin/node",
+      "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
+      "args": ["dev", "--webpack"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "env": {
+        "NODE_OPTIONS": ""
+      }
+    }
+  ]
+}
+```
+
+#### Why this configuration is used
+
+This configuration addresses three common debugging issues:
+
+#### Forces the correct Node runtime
+
+VS Code can sometimes launch Node using an outdated system binary. The `runtimeExecutable` field ensures the debugger uses the exact Node version installed via `nvm`.
+
+#### Clears injected debugging flags
+
+Some environments inject additional flags through NODE_OPTIONS. Clearing this value prevents errors related to unsupported experimental flags.
+
+#### Uses Webpack instead of Turbopack
+
+While Turbopack is the default development bundler in newer versions of Next.js, it may occasionally fail in debugging environments. Running the dev server with:
+
+```bash
+  next dev --webpack
+```
+
+provides a stable debugging workflow.
+
+#### Running the Debugger
+
+1. Open the project in VS Code
+2. Go to Run and Debug
+3. Select Example App: Next dev
+4. Start debugging
+
+The development server will launch and the debugger will attach.
+
+Example output:
+
+```bash
+  Next.js (webpack)
+  Local: http://localhost:3000
+  Debugger attached.
+```
+
+You can now place breakpoints inside components such as:
+
+```bash
+  components/pages/home/Home.tsx
+```
+
+When the page loads in the browser, execution will pause at the breakpoint so you can inspect variables, component state, and the call stack.
+
+<p align="center">
+  <img src="./public/readme_images/debugger_running.png" alt="VS Code debugger running with breakpoint" width="900"/>
+</p>
+
 ## Project Structure
 
 The project follows a modular, feature-oriented structure using the Next.js App Router.
